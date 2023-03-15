@@ -27,8 +27,8 @@ ns_eval.bool_formula <- function(obj, frame) {
   # Evaluate Formula Components
   component_results <- purrr::map(obj$bool_formula, function(x) {
 
-    if (isTRUE(validate_bool_col_expr(x, TRUE))) {
-      return(eval_bool_col_expr.bool_col_expr(x, frame))
+    if (isTRUE(validate_bool_expr(x, TRUE))) {
+      return(ns_eval.bool_expr(x, frame))
     } else if (isTRUE(validate_bool_formula(x, TRUE))) {
       return(ns_eval.bool_formula(x, frame))
     } else {

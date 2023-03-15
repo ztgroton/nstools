@@ -90,7 +90,7 @@ validate_bool_formula <- function(obj, bool) {
   # * `obj$bool_formula`
   is_valid_bool_formula <- purrr::map_lgl(obj$bool_formula, function(x){
 
-    if (isTRUE(validate_bool_col_expr(x, TRUE))) {
+    if (isTRUE(validate_bool_expr(x, TRUE))) {
       return(TRUE)
     } else if (isTRUE(validate_bool_formula(x, TRUE))) {
       return(TRUE)
