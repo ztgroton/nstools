@@ -28,7 +28,7 @@ ns_eval.col_formula <- function(obj, frame) {
   component_results <- purrr::map(obj$col_formula, function(x) {
 
     if (isTRUE(validate_col_expr(x, TRUE))) {
-      return(eval_col_expr.col_expr(x, frame))
+      return(ns_eval.col_expr(x, frame))
     } else if (isTRUE(validate_col_formula(x, TRUE))) {
       return(ns_eval.col_formula(x, frame))
     } else {
